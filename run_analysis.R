@@ -8,11 +8,6 @@
 #Load required libraries
 require(dplyr)
 
-#if(!file.exists("./data")){dir.create("./data")}
-#fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv"
-#download.file(fileUrl,destfile="./data/survey.csv",method="curl")
-#survey <- read.csv("./data/survey.csv")
-
 #Load the subjects from both training and test sets
 
 sub_test <- read.table("./test/subject_test.txt")
