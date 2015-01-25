@@ -1,10 +1,11 @@
-README file for the 
+# GettingCleaningData README file 
+Getting and cleaning data repository for making a tidy data set
 
 The purpose of the project is to retrieve, and clean a data set which can be used for further analysis. 
 
 The steps for the project include:
 
-Creation of an R script called run_analysis.R that does:
+# Creation of an R script called run_analysis.R that does:
  
 1. Merges the training and the test sets to create one data set.
 2. Extracts only the measurements on the mean and standard deviation for each measurement. 
@@ -37,4 +38,10 @@ For running it the working directory has to be set to the folder were the data i
 
 Then in R:
 
-source("run_analzsis.R)
+source("run_analysis.R")
+
+More info about the dataset:
+
+More info:
+
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
