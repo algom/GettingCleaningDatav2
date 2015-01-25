@@ -1,4 +1,4 @@
-Code Book
+#Code Book
 
 Getting and cleaning data Project
 
@@ -14,11 +14,15 @@ The experiments were done with 30 subjects (19-48 years). Each person did 6 acti
 For each record it is provided:
 
 Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration.
+<br>
 Triaxial Angular velocity from the gyroscope. 
+<br>
 A 561-feature vector with time and frequency domain variables. 
+<br>
 Its activity label. 
+<br>
 An identifier of the subject who carried out the experiment.
-
+<br>
 More info:
 
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
@@ -37,28 +41,28 @@ RAW data:
 
 The data that was read was:
 
-subject_text.txt
-subject_train.txt
-y_test.txt
-y_train.txt
-X_test.txt
-X_train.txt
-features.txt
-activiy_labels.txt
+subject_text.txt<br>
+subject_train.txt<br>
+y_test.txt<br>
+y_train.txt<br>
+X_test.txt<br>
+X_train.txt<br>
+features.txt<br>
+activiy_labels.txt<br>
 
 Below is the description for each of the files used:
 
-features.txt: List of all features or activities recorded.
-activity_labels.txt: Links the class labels with their activity name. Names of each activity.
-
-train/X_train.txt: Training set. Raw measurement data
-train/y_train.txt: Training labels.
-
-test/X_test.txt: Test set. Raw measurement data
-test/y_test.txt: Test labels.
-
+features.txt: List of all features or activities recorded.<br>
+activity_labels.txt: Links the class labels with their activity name. Names of each activity.<br>
+<br>
+train/X_train.txt: Training set. Raw measurement data<br>
+train/y_train.txt: Training labels.<br>
+<br>
+test/X_test.txt: Test set. Raw measurement data<br>
+test/y_test.txt: Test labels.<br>
+<br>
 Variables:
-
+<br>
 Subject is variable containing the participants each one anonimyzed. It is of class integer from 0 to 30. The activity is a categorical variable of the activity performed by each of the participants, namely LAYING, SITTING, STANDING, WALKING, WALKING_DOWNSTAIRS, and WALKING_UPSTAIRS.
 
 The remaining variables are the mean and standard deviation for each activity carried by the subject. The data are normalized so don't have a unit.
