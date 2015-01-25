@@ -21,7 +21,7 @@ Reads the subject labels, features and measurment data of test and training. It 
 
 Finally it makes a summary using the mean for the variables mean and standard deviation. Grouped by subject and activity. It then writes a table, comma separated values, named: "smartphone_tidy_data.txt"
 
-In the Code_Book.md there is information about the dataset and each of the variables and a more step by step actions about the code and how it performs.
+In the CodeBook.md there is information about the dataset and each of the variables and a more step by step actions about the code and how it performs.
 
 To be able to read the uploaded file in the Coursera webpage, in R
 
