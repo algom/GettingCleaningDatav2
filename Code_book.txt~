@@ -1,0 +1,151 @@
+Code Book
+
+Getting and cleaning data Project
+
+Below is a description of the code and description of an anlysis to generate a tidy data set for an specific source. The data was obtained from:
+
+The Human Activity Recognition Using Smartphones Data Set a study where physical activities where recorded, using smartphones, for several subjects.
+
+Below part of the information is taken from the README.txt of the original source:
+
+Experimental design:
+The experiments were done with 30 subjects (19-48 years). Each person did 6 activities, namely: WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING, while wearing a smartphone on the waist. Using its accelerometer and gyroscope, they recorded 3-axial linear acceleration and 3-axial angular velocity at a constant rate. The obtained dataset was divided into two sets.
+
+For each record it is provided:
+
+Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration.
+Triaxial Angular velocity from the gyroscope. 
+A 561-feature vector with time and frequency domain variables. 
+Its activity label. 
+An identifier of the subject who carried out the experiment.
+
+More info:
+
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+
+The first step is to obtain the files withthe raw data:
+
+https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+
+After downloading the file it is unzipped and a folder named "UCI_HAR_Dataset" is created. Then an R-scrip file "run_analysis.R" is copied to this folder.
+
+For running it the working directory has to be set to the folder were the data is located "UCI_HAR_Dataset"
+
+The script then first reads the data.
+
+RAW data:
+
+The data that was read was:
+
+subject_text.txt
+subject_train.txt
+y_test.txt
+y_train.txt
+X_test.txt
+X_train.txt
+features.txt
+activiy_labels.txt
+
+Below is the description for each of the files used:
+
+features.txt: List of all features or activities recorded.
+activity_labels.txt: Links the class labels with their activity name. Names of each activity.
+
+train/X_train.txt: Training set. Raw measurement data
+train/y_train.txt: Training labels.
+
+test/X_test.txt: Test set. Raw measurement data
+test/y_test.txt: Test labels.
+
+Variables:
+
+Subject is variable containing the participants each one anonimyzed. It is of class integer from 0 to 30. The activity is a categorical variable of the activity performed by each of the participants, namely LAYING, SITTING, STANDING, WALKING, WALKING_DOWNSTAIRS, and WALKING_UPSTAIRS.
+
+The remaining variables are the mean and standard deviation for each activity carried by the subject. The data are normalized so don't have a unit.
+
+Extracted features from original file		
+
+tBodyAcc-mean()-X	Column	1
+tBodyAcc-mean()-Y	Column	2
+tBodyAcc-mean()-Z	Column	3
+tBodyAcc-std()-X	Column	4
+tBodyAcc-std()-Y	Column	5
+tBodyAcc-std()-Z	Column	6
+tGravityAcc-mean()-X	Column	41
+tGravityAcc-mean()-Y	Column	42
+tGravityAcc-mean()-Z	Column	43
+tGravityAcc-std()-X	Column	44
+tGravityAcc-std()-Y	Column	45
+tGravityAcc-std()-Z	Column	46
+tBodyAccJerk-mean()-X	Column	81
+tBodyAccJerk-mean()-Y	Column	82
+tBodyAccJerk-mean()-Z	Column	83
+tBodyAccJerk-std()-X	Column	84
+tBodyAccJerk-std()-Y	Column	85
+tBodyAccJerk-std()-Z	Column	86
+tBodyGyro-mean()-X	Column	121
+tBodyGyro-mean()-Y	Column	122
+tBodyGyro-mean()-Z	Column	123
+tBodyGyro-std()-X	Column	124
+tBodyGyro-std()-Y	Column	125
+tBodyGyro-std()-Z	Column	126
+tBodyGyroJerk-mean()-X	Column	161
+tBodyGyroJerk-mean()-Y	Column	162
+tBodyGyroJerk-mean()-Z	Column	163
+tBodyGyroJerk-std()-X	Column	164
+tBodyGyroJerk-std()-Y	Column	165
+tBodyGyroJerk-std()-Z	Column	166
+tBodyAccMag-mean()	Column	201
+tBodyAccMag-std()	Column	202
+tGravityAccMag-mean()	Column	214
+tGravityAccMag-std()	Column	215
+tBodyAccJerkMag-mean()	Column	227
+tBodyAccJerkMag-std()	Column	228
+tBodyGyroMag-mean()	Column	240
+tBodyGyroMag-std()	Column	241
+tBodyGyroJerkMag-mean()	Column	253
+tBodyGyroJerkMag-std()	Column	254
+fBodyAcc-mean()-X	Column	266
+fBodyAcc-mean()-Y	Column	267
+fBodyAcc-mean()-Z	Column	268
+fBodyAcc-std()-X	Column	269
+fBodyAcc-std()-Y	Column	270
+fBodyAcc-std()-Z	Column	271
+fBodyAccJerk-mean()-X	Column	345
+fBodyAccJerk-mean()-Y	Column	346
+fBodyAccJerk-mean()-Z	Column	347
+fBodyAccJerk-std()-X	Column	348
+fBodyAccJerk-std()-Y	Column	349
+fBodyAccJerk-std()-Z	Column	350
+fBodyGyro-mean()-X	Column	424
+fBodyGyro-mean()-Y	Column	425
+fBodyGyro-mean()-Z	Column	426
+fBodyGyro-std()-X	Column	427
+fBodyGyro-std()-Y	Column	428
+fBodyGyro-std()-Z	Column	429
+fBodyAccMag-mean()	Column	503
+fBodyAccMag-std()	Column	504
+fBodyBodyAccJerkMag-mean()	Column	516
+fBodyBodyAccJerkMag-std()	Column	517
+fBodyBodyGyroMag-mean()	Column	529
+fBodyBodyGyroMag-std()	Column	530
+fBodyBodyGyroJerkMag-mean()	Column	542
+fBodyBodyGyroJerkMag-std()	Column	543
+
+This variables names were transformed to make it more readable and suitable for processing:
+
+To each "t", which means time was modified for "Time"
+To each "f", which frequency time was modified for "Freq"
+Parenthesis were removed
+Mag for Magnitude
+Acc for Acceleration
+Gyro is the gyroscope
+sd for StDev, standard deviation
+
+The code reads the subject labels, features and measurment data of test and training. It first appends each of test and training, of each, then it selecst the variables which have mean and standard deviation. It then rearranges the names of the variables for more descriptive names. And merges all data sets to produce a tidy data set, and writes it on a table as a txt, comma separated values, which is suitable for analysis. The file generated is named "Human_Activity_Recog_Smartphones.txt".
+
+Finally it makes a summary using the mean for the variables mean and standard deviation. Grouped by subject and activity. It then writes a table, comma separated values, named: smartphone_tidy_data
+
+
+
+
